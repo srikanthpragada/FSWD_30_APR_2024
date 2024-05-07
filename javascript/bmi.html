@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <script>
+        function showCategory() {
+            // Get access to textboxes 
+            var txtHeight = document.getElementById("txtHeight")
+            var txtWeight = document.getElementById("txtWeight")
+
+            // convert string to number using parseInt()
+            var height = parseInt(txtHeight.value) 
+            var weight = parseInt(txtWeight.value) 
+
+            // Calcualte BMI 
+            var height_meters = height / 100     // convert cm to meters
+            var bmi = weight /  (height_meters * height_meters)
+
+            // Find out category based on BMI 
+
+            var category = "Obese"
+
+            if(bmi <= 18.4)
+                category = "UnderWeight"
+            else
+               if(bmi <= 24.9)
+                  category = "NormalWeight"
+               else
+                  if (bmi <= 39.9)
+                     category = "OverWeight"
+
+            alert(category)
+
+        }
+    </script>
+</head>
+
+<body>
+    <h2>BMI</h2>
+    Height (CM) <br/>
+    <input type="number" id="txtHeight" autocomplete="off" />
+    <p></p>
+    Weight (KG)<br/>
+    <input type="number" id="txtWeight" autocomplete="off" />
+    <p></p>
+    <button onclick="showCategory()">Show Category</button>
+</body>
+
+</html>
