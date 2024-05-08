@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        td {
+            text-align: right;
+        }
+    </style>
+    <script>
+        function showTable() {
+            var txtNumber = document.getElementById("txtNumber")
+            var number = parseInt(txtNumber.value)
+
+            var output = ""
+            for(let i = 1; i  <= 10; i ++) {
+                   output = output +
+                    `<tr><td>${number}</td><td>${i}</td><td>${number * i}</td></tr>`
+            }
+    
+            document.getElementById("outputTable").innerHTML = output 
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Show Table</h2>
+    Number <input type="number" id="txtNumber" />
+    <button onClick="showTable()">Go</button>
+    <p></p>
+    <table border="1" cellpading="5pt"  id="outputTable">
+    
+    </table>
+
+</body>
+
+</html>

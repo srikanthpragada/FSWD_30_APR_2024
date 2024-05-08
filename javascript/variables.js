@@ -1,3 +1,4 @@
+"use strict"
 var n = 100
 console.log(typeof (n))
 
@@ -6,4 +7,10 @@ console.log(typeof (n))
 
 const a = 10
 
-a = 20 
+//a = 20 
+
+b = 200
+
+console.log(b)
+
+
