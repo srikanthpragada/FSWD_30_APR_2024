@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACTORS OF A NUM</title>
+    <script>
+        function factors() {
+            var txtNumber = document.getElementById("txtNumber")
+            var num = parseInt(txtNumber.value)
+            var output = ""
+            for (let i = 2; i <= num / 2; i++) {
+                if (num % i == 0) 
+                     output = output +  `<li>${i}</li>`
+            }
+
+            document.getElementById("factors").innerHTML = output
+        }
+    </script>
+    <style>
+        li { font-size:14pt}
+    </style>
+
+</head>
+
+<body>
+    <h1>FACTORS OF A NUM</h1>
+    Number : <input type="number" id="txtNumber" />
+    <button onclick="factors()">GO</button>
+    <ul id="factors">
+
+    </ul>
+</body>
+
+</html>

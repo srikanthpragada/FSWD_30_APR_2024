@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <script>
+        var skills = []
+
+        function addSkill() {
+            var txtSkill = document.getElementById("txtSkill")
+            skills.push(txtSkill.value)
+            console.log(skills)
+            showSkills()
+        }
+
+        function showSkills() {
+              var listSkills = document.getElementById("listSkills")
+              var output = ""
+              for(let s of skills)
+                  output +=  `<li>${s}</li>`
+
+              listSkills.innerHTML = output
+        }
+    </script>
+</head>
+<body>
+     <h1>Skils</h1>
+     Skill : <input type="text" id="txtSkill" />
+     <button onClick="addSkill()">Add</button>
+     <p></p>
+     <ul id="listSkills">
+
+     </ul>
+</body>
+</html>
