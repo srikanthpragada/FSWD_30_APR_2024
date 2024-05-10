@@ -1,36 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills</title>
+  
+</head>
+
+<body>
+    <h1>Skils</h1>
+    Skill : <input type="text" id="txtSkill" />
+    <button onClick="addSkill()">Add</button>
+    <span style="color:red" id="message"></span>
+    <p></p>
+    <ul id="listSkills">
+
+    </ul>
+
     <script>
         var skills = []
+        var txtSkill = document.getElementById("txtSkill")
+        var message = document.getElementById("message")
+        var listSkills = document.getElementById("listSkills")
 
         function addSkill() {
-            var txtSkill = document.getElementById("txtSkill")
-            skills.push(txtSkill.value)
-            console.log(skills)
-            showSkills()
+            if (skills.includes(txtSkill.value))
+                message.innerHTML = "Duplicate Skill"
+            else {
+                skills.push(txtSkill.value)
+                message.innerHTML = ""
+                showSkills()
+            }
         }
 
         function showSkills() {
-              var listSkills = document.getElementById("listSkills")
-              var output = ""
-              for(let s of skills)
-                  output +=  `<li>${s}</li>`
+            var output = ""
+            for (let s of skills)
+                output += `<li>${s}</li>`
 
-              listSkills.innerHTML = output
+            listSkills.innerHTML = output
         }
     </script>
-</head>
-<body>
-     <h1>Skils</h1>
-     Skill : <input type="text" id="txtSkill" />
-     <button onClick="addSkill()">Add</button>
-     <p></p>
-     <ul id="listSkills">
-
-     </ul>
 </body>
+
 </html>
