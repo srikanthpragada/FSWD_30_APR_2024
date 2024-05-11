@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <script>
+        function validateMobile() {
+            var mobile = document.getElementById("txtMobile").value
+            var mobileError = document.getElementById("mobileError")
+            if (! /^\d{10}$/.test(mobile))
+                mobileError.innerHTML = "Invalid Mobile Number!"
+            else
+                mobileError.innerHTML = ""
+        }
+
+        function validatePassword() {
+            var password = document.getElementById("txtPassword").value
+            var passwordError = document.getElementById("passwordError")
+            passwordError.innerHTML = ""
+
+            if (! /[A-Z]/.test(password))
+                passwordError.innerHTML = "Missing Uppercase letter"
+            else {
+                if (! /\d/.test(password))
+                    passwordError.innerHTML = "Missing digit"
+            }
+        }
+
+        function validateDetails() {
+            validateMobile();
+            validatePassword();
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Registration</h1>
+    Mobile Number : <input type="number" id="txtMobile" />
+    <span id="mobileError"></span>
+    <p></p>
+    Password : <input type="password" id="txtPassword" />
+    <span id="passwordError"></span>
+    <p></p>
+    <button onClick="validateDetails()">Register</button>
+
+</body>
+
+</html>
