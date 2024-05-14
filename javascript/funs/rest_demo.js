@@ -1,4 +1,4 @@
-
+// Rest argument
 function sum(...nums) {
     //console.log(typeof(nums))
     let total = 0
