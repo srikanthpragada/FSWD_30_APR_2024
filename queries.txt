@@ -1,0 +1,95 @@
+select fullname, salary from employees   -- projection
+
+select * from employees
+where dept_id = 'it'
+
+select * from employees
+where salary  > 500000
+
+select * from employees
+where  dept_id <> 'it' and salary  > 500000
+
+select * from employees
+where  salary  between 300000 and 500000
+
+select * from employees
+where  dept_id = 'it' or dept_id = 'ac'
+
+select * from employees
+where  dept_id  in ('it','ac')
+
+select fullname, salary * 0.20  as Bonus
+from employees
+where  dept_id  in ('it','ac')
+
+select *
+from employees
+where  fullname like 'S%'
+
+select *
+from employees
+where  fullname like '_t%'
+
+select *
+from employees
+where  fullname like '%e_'
+
+select *
+from employees
+order by salary desc
+
+select *
+from employees
+order by dept_id, salary desc
+
+select sum(salary)
+from employees
+
+select dept_id, sum(salary)
+from employees
+group by dept_id
+
+select dept_id, avg(salary)
+from employees
+group by dept_id
+
+
+select  dept_name, fullname, salary
+from employees join departments 
+using(dept_id)
+
+select  dept_name, fullname, salary
+from employees as e join departments as d
+on e.dept_id = d.dept_id
+
+
+select  dept_name, fullname, salary
+from employees as e join departments as d
+on e.dept_id = d.dept_id
+where salary > 500000
+
+
+select  mod(10,3)
+
+select sysdate()
+
+
+select date_add(curdate(),interval 2 month)
+
+select datediff(curdate(), '2024-1-1')	
+
+
+select  *
+from employees
+where length(fullname) > 15
+
+select  count(*)
+from employees
+
+select  count(*)
+from employees
+where salary > 500000
+
+select dept_id, count(*)
+from employees
+group by dept_id
