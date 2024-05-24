@@ -6,12 +6,12 @@ function writeFile(err, data) {
         console.log("File not found!")
     else {
         console.log("Writing started...")
-        fs.writeFile('./files/names2.txt', data, 'utf-8',
+        fs.writeFile('./file/names2.txt', data, 'utf-8',
             (err) => {
                 if (!err)
                     console.log("Copied")
                 else
-                    console.log("Writing Error!")
+                    console.log(err.message)
             }
         )
     }
