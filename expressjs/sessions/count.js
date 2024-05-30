@@ -14,8 +14,8 @@ app.use(cookieSession({
 
 app.get('/countViews', (req, res) => {
   req.session.count = (req.session.count || 0) + 1
-  res.send(`<h1>You viewed this page for ${req.session.count} times</h1>`)
-  res.end()
+  req.session.lastaccess = new Date().toString()
+  res.end(`<h1>You viewed this page for ${req.session.count} times. </h1><h2> Last accessed at ${req.session.lastaccess}</h2>`)
 })
 
 

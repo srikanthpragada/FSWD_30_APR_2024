@@ -19,7 +19,7 @@ app.get('/names', (req, res) => {
   if (req.query.name)
   {
     names.push(req.query.name)
-    req.session.names = names 
+    req.session.names = names  // update names in session 
   }
   let output = names.join(",")
   res.send(`<h1>${output}</h1>`)
