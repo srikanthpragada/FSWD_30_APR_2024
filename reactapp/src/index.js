@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Greet from './basics/Greet';
+import Customer from './props/Customer';
 
+let courses = [
+  { title: "Power BI", fee: 10000 },
+  { title: "Python", fee: 7500 },
+  { title: "Data Science", fee: 20000 }
+]
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Greet />
+    <Customer  name="Larry Page" email="larry@google.com" age ={40} />
   </React.StrictMode>
 );
 
