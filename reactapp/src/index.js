@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Customer from './props/Customer';
+import Passengers from './state/Passengers';
 
 let courses = [
   { title: "Power BI", fee: 10000 },
@@ -11,7 +11,7 @@ let courses = [
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Customer  name="Larry Page" email="larry@google.com" age ={40} />
+    <Passengers />
   </React.StrictMode>
 );
 
