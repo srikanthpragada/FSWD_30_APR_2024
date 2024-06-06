@@ -6,10 +6,13 @@ export default function Passengers() {
     function addPassenger() {
         let name = document.getElementById("txtName").value 
         let age = document.getElementById("txtAge").value 
+        setPassengers([...passengers, { name: name, age: age }])
+        //console.log(passengers)
+    }
 
-        passengers.push({ name: name, age: age })
-        setPassengers(passengers)
-        console.log(passengers)
+    function deletePassenger(idxToDelete) {
+        //alert("Delete " + idxToDelete)
+        setPassengers (passengers.filter( (v,idx) =>  idx !== idxToDelete))
     }
 
     return (
@@ -23,21 +26,30 @@ export default function Passengers() {
             <p></p>
             <button onClick={addPassenger}>Add</button>
             <p></p>
-            <table>
-                <tr><th>Name</th> 
-                <th>Age</th>
-                <th></th>
-                </tr>
-                {
-                    passengers.map(p => 
-                        <tr>
-                            <td>{p.name}</td>
-                            <td>{p.age}</td>
-                            <td><button>Delete</button></td>
+
+            {passengers.length > 0 &&
+                <table className="table table-bordered">
+                    <thead>
+                        <tr><th>Name</th>
+                            <th>Age</th>
+                            <th></th>
                         </tr>
-                    )
-                }
-            </table>
+                    </thead>
+              
+                    <tbody>
+                        {
+                            passengers.map((p, idx) =>
+                                <tr key={idx}>
+                                    <td>{p.name}</td>
+                                    <td>{p.age}</td>
+                                    <td className="text-center">
+                                        <button onClick={() => deletePassenger(idx)}>Delete</button></td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
+            }
         </>
     )
 }
