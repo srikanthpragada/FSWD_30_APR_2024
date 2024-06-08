@@ -30,7 +30,8 @@ function AddPassenger({ passengers, addFunc }) {
         <>
             <form onSubmit={addPassenger}>
                 Name < br />
-                <input type="text" value={passenger.name} name="name" onChange={updateValue} required maxLength="20" />
+                <input type="text" value={passenger.name} name="name"
+                               onChange={updateValue} required maxLength="20" />
                 &nbsp; <span className="text-danger">{message}</span>
                 <p />
                 Age < br />
