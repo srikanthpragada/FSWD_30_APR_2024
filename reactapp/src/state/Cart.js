@@ -14,6 +14,7 @@ export default function Cart() {
 
     function addToCart(e) {
         e.preventDefault()
+        item.idx = parseInt(item.idx)
         if (item.idx === 0) {
             alert("Please select a product!")
             return;
@@ -21,8 +22,17 @@ export default function Cart() {
         // add item to cart 
         let itemName = products[item.idx].name
         let itemPrice = products[item.idx].price
-        setCart([...cart, { name: itemName, price: itemPrice, qty: parseInt(item.qty) }])
-        console.log(cart)
+
+        let cartItem = cart.find((item, idx) => item.name === itemName)
+        if (cartItem)  // item is found in cart 
+        {
+            cartItem.qty += parseInt(item.qty)  // increment qty for the item
+            setCart([...cart])   // update cart 
+        }
+        else {
+            // add new item to cart
+            setCart([...cart, { name: itemName, price: itemPrice, qty: parseInt(item.qty) }])
+        }
     }
 
     function updateItem(e) {
@@ -35,6 +45,10 @@ export default function Cart() {
         let total = 0
         cart.forEach(item => total += item.qty * item.price)
         return total
+    }
+
+    function deleteItem(idxToDelete) {
+        setCart ( cart.filter ( (item, idx) => idx !== idxToDelete))
     }
 
     return (
@@ -78,13 +92,13 @@ export default function Cart() {
                                         <td className="text-end">{item.price}</td>
                                         <td className="text-end">{item.qty}</td>
                                         <td className="text-end">{item.price * item.qty}</td>
-                                        <td className="text-center"><button>Delete</button></td>
+                                        <td className="text-center"
+                                            onClick={() => deleteItem(idx)}><button>Delete</button></td>
                                     </tr>
                                 )
-
                             }
                             <tr>
-                                <td className="text-primary"  colspan="3">Total</td>
+                                <td className="text-primary"  colSpan="3">Total</td>
                                 <td className="text-primary text-end">{getTotal()}</td>
                             </tr>
                         </tbody>

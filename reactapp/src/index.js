@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Cart from './state/Cart';
-import UncontrolledDemo from './state/UncontrolledDemo';
+import FetchUseEffectDemo from './ajax/FetchUseEffectDemo';
 
 let courses = [
   { title: "Power BI", fee: 10000 },
@@ -12,7 +11,7 @@ let courses = [
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <UncontrolledDemo />
+    <FetchUseEffectDemo />
   </React.StrictMode>
 );
 
