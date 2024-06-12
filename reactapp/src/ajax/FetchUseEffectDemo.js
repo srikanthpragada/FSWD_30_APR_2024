@@ -8,6 +8,7 @@ export default function FetchUseEffectDemo() {
         fetch("http://worldtimeapi.org/api/timezone/Etc/UTC")
             .then(response => response.json())
             .then(data => setNow(data.datetime))
+            .catch( () => alert("Sorry!! Could not get details!!"))
     }
 
     async function getTime() {
@@ -19,7 +20,7 @@ export default function FetchUseEffectDemo() {
 
     //useEffect(() => { getTime() }, []);
     useEffect(getUTCTime, []);
-    
+
     return (
         <>
             <h1>Fetch Demo</h1>

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import FetchUseEffectDemo from './ajax/FetchUseEffectDemo';
+import GitUserRepos from './ajax/GitUserRepos';
 
 let courses = [
   { title: "Power BI", fee: 10000 },
@@ -11,7 +11,7 @@ let courses = [
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <FetchUseEffectDemo />
+    <GitUserRepos />
   </React.StrictMode>
 );
 
