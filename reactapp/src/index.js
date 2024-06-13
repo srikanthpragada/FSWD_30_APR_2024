@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import GitUserRepos from './ajax/GitUserRepos';
+import Main from './routing/Main';
 
-let courses = [
-  { title: "Power BI", fee: 10000 },
-  { title: "Python", fee: 7500 },
-  { title: "Data Science", fee: 20000 }
-]
+// let courses = [
+//   { title: "Power BI", fee: 10000 },
+//   { title: "Python", fee: 7500 },
+//   { title: "Data Science", fee: 20000 }
+// ]
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GitUserRepos />
+    <Main />
   </React.StrictMode>
 );
 
