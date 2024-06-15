@@ -14,7 +14,8 @@ async function getBooks() {
 }
 
 async function getBooksByAuthor(author) {
-    var [rows, fields] = await pool.query("select * from books where author like ?", ['%' + author + '%'])
+    var [rows, fields] = await pool.query("select * from books where upper(author) like ?",
+                     [`%${author.toUpperCase()}%`])
     return rows;
 }
 
@@ -26,9 +27,9 @@ async function getBookById(id) {
         return null;  // Indicates book not found 
 }
 
-async function searchBooks(title) {
+async function searchBooks(searchString) {
     var [rows, fields] = await pool.query("select * from books where upper(title) like ?",
-        [`%${title.toUpperCase()}%`])
+        [`%${searchString.toUpperCase()}%`])
     return rows;
 }
 
@@ -59,7 +60,8 @@ async function deleteBook(id) {
 
 
 async function getAuthorsBooksCount() {
-    var [rows, fields] = await pool.query("select author, count(*) as bookCount from books group by author order by author")
+    var [rows, fields] = await pool.query
+        ("select author, count(*) as bookCount from books group by author order by author")
     return rows;
 }
 

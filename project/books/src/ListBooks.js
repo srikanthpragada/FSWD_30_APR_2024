@@ -43,7 +43,7 @@ export default function ListBooks() {
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th></th>
+                        <th className="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -4,7 +4,7 @@ var db = require("./booksDatabase")
 async function getBooks(req,res) {
   try {
     let books = await db.getBooks()
-    res.json(books)
+    res.json(books) //  JS to JSON
   }
   catch (err) {
     res.status(500).send("Error : " + err.message)
