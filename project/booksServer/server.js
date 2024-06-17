@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors()) 
 
 // static files config
-//app.use(express.static('build'))
+app.use(express.static('build'))
 
 // Get all books
 app.get('/books', handlers.getBooks) 

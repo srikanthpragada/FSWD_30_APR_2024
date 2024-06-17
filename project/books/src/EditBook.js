@@ -37,7 +37,7 @@ export default function EditBook() {
             {
                 url:`${BOOKS_URL}/${bookId}`,
                 method: 'put',
-                data: JSON.stringify(book),
+                data: JSON.stringify(book), // JS to JSON
                 contentType: 'application/json; charset=utf-8',
                 success: function () {
                     alert("Book updated successfully!")
@@ -63,7 +63,7 @@ export default function EditBook() {
                 <p></p>
 
                 Price <br />
-                <input type="number" value={book.price} onChange={changeValue} name="price" />
+                <input type="number" value={book.price} required onChange={changeValue} name="price" />
                 <p></p>
                 <button>Update Book</button>
                 &nbsp;

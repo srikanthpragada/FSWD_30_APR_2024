@@ -8,7 +8,6 @@ export default function AddBook() {
   let navigate = useNavigate()
 
   function addBook(event) {
-
     event.preventDefault()
 
     // make ajax request for post 
@@ -40,7 +39,6 @@ export default function AddBook() {
   function cancelAdd(e) {
     e.preventDefault()
     navigate("/list")  // Programmatic Navigation
-
   }
 
 

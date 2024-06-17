@@ -8,7 +8,6 @@ export default function AddBookFetch() {
   let navigate = useNavigate()
 
   async function addBook(event) {
-
     event.preventDefault()
 
     // make ajax request for post 

@@ -31,8 +31,8 @@ export default function ListAuthors() {
                         authors.map((author) =>
                             <tr key={author.author}>
                                 <td>{author.author} </td>
-                                <td> {author.bookCount} </td>
-                                <td>
+                                <td className="text-end" style={{width:'150px'}}> {author.bookCount} </td>
+                                <td className="text-center">
                                     <Link to={`/booksByAuthor/${author.author}`}
                                     className="btn btn-info">Books</Link>
                                 </td>
